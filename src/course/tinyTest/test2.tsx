@@ -1,0 +1,38 @@
+import React, { useState } from 'react'
+
+function Row (props) {
+  const {item} = props
+  return (
+    <tr>
+      <td>{item.id}</td>
+    </tr>
+  )
+}
+
+function Table (props) {
+  console.log('render Table')
+  const {list} = props
+  return (
+    <table>
+      <tbody>
+        {list.map(item => <Row key={item.id} item={item} />)}
+      </tbody>
+    </table>  
+  )
+}
+
+// 按下按钮之后，App的 render function 被触发，然后Table的 render function 也被触发，所以重新渲染了一次整个列表。
+// 可是我们点击按钮之后，list根本没变，其实是不需要重新渲染的
+export default function App () {
+  let [list, setList] = useState(() => {
+    return Array(10).fill(0).map((val, index) => ({id: index}))
+  })
+  let [otherState, setOtherState] = useState(0)
+  return (
+    <div>
+      <button onClick={() => setOtherState(otherState + 1)}>change state!</button>
+      otherState:{otherState}
+      <Table list={list} />
+  </div>
+  )
+}
