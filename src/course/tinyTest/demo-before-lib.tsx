@@ -33,10 +33,12 @@ export default function App() {
   console.log(state.list === nextState.list) // false
   console.log(state.list[0] === nextState.list[0]) // true
   console.log(state.list[1] === nextState.list[1]) // false
+  
   return (
     <>
-      <div>{nextState.title}</div>
-      {nextState.list.map(item => {
+      <button onClick={() => setState(nextState)}>setState</button>
+      <div>{state.title}</div>
+      {state.list.map(item => {
         return (<div key={item.id}>id: {item.id} name: {item.name}</div>)
       })}
     </>

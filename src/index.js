@@ -16,8 +16,8 @@ import * as serviceWorker from './serviceWorker';
 // import App from './course/tinyTest/demo-04.tsx'
 // import App from './course/tinyTest/demo-05.tsx'
 // import App from './course/tinyTest/demo-before-lib.tsx'
-// import App from './course/tinyTest/demo-immutable.tsx'
-import App from './course/tinyTest/demo-immer.tsx'
+import App from './course/tinyTest/demo-immutable.tsx'
+// import App from './course/tinyTest/demo-immer.tsx'
 // import App from './course/tinyTest/lib.tsx'
 
 

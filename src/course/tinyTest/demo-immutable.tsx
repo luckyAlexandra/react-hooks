@@ -1,21 +1,23 @@
 // demo-immutable
-import React from 'react'
+import React, { useState } from 'react'
 import { fromJS } from 'immutable'
 
 export default function App() {
-  const stateMap = fromJS({
-    title: 'zp',
-    list: [
-      {
-        id: 1,
-        name: 'hello'
-      }, {
-        id: 2,
-        name: 'world'
-      }
-    ]
+  const [state, setState] = useState(() => {
+    return {
+      title: 'zp',
+      list: [
+        {
+          id: 1,
+          name: 'hello'
+        }, {
+          id: 2,
+          name: 'world'
+        }
+      ]
+    }
   })
-
+  const stateMap = fromJS(state)
 
   const newStateMap  = stateMap.updateIn(['list'], list => {
     return list.update(1, item => item.set('name', 'world2'))
@@ -26,8 +28,9 @@ export default function App() {
 
   return (
     <div>
-      title: {immutableObj.title}
-      {immutableObj.list.map((item) => {
+      <button onClick={() => setState(immutableObj)}>setState</button>
+      title: {state.title}
+      {state.list.map((item) => {
         return (
           <div key={item.id}>
             <div>id: {item.id}</div>
