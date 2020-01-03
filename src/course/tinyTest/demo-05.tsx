@@ -1,13 +1,14 @@
+// demo-05
+// 这里有个问题，itemStyle这个props，我们每次 render 的时候都创建了一个新的对象，
+// 所以对于Row来说，尽管props.item 是一样的，但是props.style却是[每次都不一样]。
+// 如果你已经知道每次都会不一样，那memo这时候就没有用了，而且还更糟，因为它帮你做了shallowEqual。shallowEqual也是需要执行时间的。
+// 所以在已知props的比较每次都失败的话，就不需要比较了。
 import React, { useState, useMemo } from 'react'
 
 interface Item {
   id: number
 }
 
-// 这里的问题在于itemStyle这个props，我们每次 render 的时候都创建了一个新的对象，
-// 所以对于Row来说，尽管props.item 是一样的，但是props.style却是[每次都不一样]。
-// 如果你已经知道每次都会不一样，那memo这时候就没有用了，而且还更糟，因为它帮你做了shallowEqual。shallowEqual也是需要执行时间的。
-// 所以在已知props的比较每次都失败的话，就不需要比较了。
 const MemoizedRow = React.memo(function Row  (props: {item: Item, style: object}) {
   console.log('render row')
   const {item, style} = props

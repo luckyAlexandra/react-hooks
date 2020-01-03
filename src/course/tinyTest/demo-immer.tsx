@@ -1,15 +1,6 @@
+// demo-immer
 import React, { useState } from 'react';
 import produce from 'immer'
-
-interface State {
-  title: string,
-  list: Item[]
-}
-
-interface Item {
-  id: number,
-  name: string
-}
 
 export default function App () {
   const state = {
@@ -29,14 +20,14 @@ export default function App () {
     draftState.title = 'zt'
   })
   return [
-    <div>
+    <div key='a'>
       title: {nextState.title}
       {nextState.list.map((item) => {
         return (
-          <>
+          <div key={item.id}>
             <div>id: {item.id}</div>
             <div>name: {item.name}</div>
-          </>
+          </div>
         )
       })}
     </div>

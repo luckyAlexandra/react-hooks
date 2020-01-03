@@ -1,15 +1,6 @@
+// demo-immutable
 import React from 'react'
 import { fromJS } from 'immutable'
-
-interface State {
-  title: string,
-  list: Item[]
-}
-
-interface Item {
-  id: number,
-  name: string
-}
 
 export default function App() {
   const stateMap = fromJS({
@@ -33,17 +24,17 @@ export default function App() {
   let immutableObj = newStateMap.toJS()
   console.log(immutableObj)
 
-  return [
+  return (
     <div>
       title: {immutableObj.title}
       {immutableObj.list.map((item) => {
         return (
-          <>
+          <div key={item.id}>
             <div>id: {item.id}</div>
             <div>name: {item.name}</div>
-          </>
+          </div >
         )
       })}
     </div>
-  ]
+  )
 }

@@ -1,3 +1,5 @@
+// demo-03 
+// 使用useMemo分别记忆list和otherState
 import React, { useState, useMemo } from 'react'
 
 interface Item {

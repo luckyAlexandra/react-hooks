@@ -1,11 +1,9 @@
+// demo 01
+// 按下按钮之后，App的 render function 被触发，然后Table的 render function 也被触发，所以重新渲染了一次整个列表。
+// 可是我们点击按钮之后，list根本没变，其实是不需要重新渲染的
 import React, { useState } from 'react'
 
-interface Item {
-  id: number
-}
-
 function Row (props) {
-  console.log('row')
   const {item} = props
   return (
     <tr>
@@ -14,26 +12,23 @@ function Row (props) {
   )
 }
 
-// If your function component renders the same result given the same props, 
-// you can wrap it in a call to React.memo for a performance boost in some cases by memoizing the result.
-
-const Table = React.memo(function Table (props: {list:Item[]}) {
-  console.log('render Table', props)
-  let {list} = props
+function Table (props) {
+  console.log('render Table')
+  const {list} = props
   return (
     <table>
       <tbody>
-        {list.map(item => <Row key={item.id} item={item}/>)}
+        {list.map(item => <Row key={item.id} item={item} />)}
       </tbody>
     </table>  
   )
-})
+}
 
 export default function App () {
-  let [otherState, setOtherState] = useState(0)
   let [list, setList] = useState(() => {
     return Array(10).fill(0).map((val, index) => ({id: index}))
   })
+  let [otherState, setOtherState] = useState(0)
   return (
     <div>
       <button onClick={() => setOtherState(otherState + 1)}>change state!</button>
