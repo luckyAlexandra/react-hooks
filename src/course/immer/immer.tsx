@@ -1,6 +1,5 @@
 import React from 'react';
 import produce from 'immer'
-import { url } from 'inspector';
 
 export default function Demo() {
   const baseState = [

@@ -15,7 +15,10 @@ import * as serviceWorker from './serviceWorker';
 // import App from './course/tinyTest/test3.tsx'
 // import App from './course/tinyTest/test4.tsx'
 // import App from './course/tinyTest/test5.tsx'
-import App from './course/tinyTest/test6.tsx'
+// import App from './course/tinyTest/test6.tsx'
+// import App from './course/tinyTest/immer.tsx'
+import App from './course/tinyTest/immutable.tsx'
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
