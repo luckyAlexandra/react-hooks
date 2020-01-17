@@ -1,0 +1,10 @@
+    "target": "es5",
+    "lib": [
+    ],
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true
+    "module": "esnext"
+    "moduleResolution": "node",
+    "jsx": "react",
+    "noImplicitThis": false,
+    "noImplicitAny": false
