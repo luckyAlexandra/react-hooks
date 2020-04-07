@@ -30,7 +30,10 @@ import * as serviceWorker from './serviceWorker';
 // import App from './course/customHooks/mousePos0/4-render-props'
 
 // import App from './course/useReducer/demo01'
-import App from './course/useReducer/Counter'
+// import App from './course/useReducer/Counter'
+
+// import App from './course/useContext/index'
+import App from './course/useContext/demo/index'
 
 // import App from './course/dragTest'
 // import App from './course/tinyTest/demo-01.tsx'
